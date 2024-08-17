@@ -77,12 +77,12 @@ class CLIProgressBar(_CLIProgressBar):
                     print('=',end='')
                     pcnt += 1
                 print('*',end='')
-                for i in range(0, self._pnum-pcnt-1):
+                for i in range(0, self._pnum-pcnt):
                     print(' ',end='')
                 nt = time.time()
                 dt = nt-self._lastTime
                 if dt > 0:
-                    rate = (1.0/(nt-self._lastTime))
+                    rate = (1.0/dt)
                     print(f"] {self._cnt+1}/{self._len} {rate:.2f}{self.unit}/s ({prog:.2f}%)          ")
                     self._lastTime = nt
                 else:

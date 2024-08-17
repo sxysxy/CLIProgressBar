@@ -1,0 +1,10 @@
+CLIProgressBarTest
+CLIProgressBarTest.exe
+CMakeCache.txt
+CMakeFiles
+build/
+Makefile
+compile_commands.json
+*.cmake
+.vscode
+.cache
