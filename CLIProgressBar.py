@@ -22,7 +22,7 @@ if sys.platform in ['win32', 'cygwin']:
         csbi.dwCursorPosition.X = 0
         if csbi.dwCursorPosition.Y > 0:
             csbi.dwCursorPosition.Y -= 1
-        ctypes.windll.kernel32.SetConsoleCursorPosition(hStdOut, csbi)
+        ctypes.windll.kernel32.SetConsoleCursorPosition(hStdOut, csbi.dwCursorPosition)
 
 class _CLIProgressBar:
     def _cliMoveArrowUp(self):
@@ -80,9 +80,13 @@ class CLIProgressBar(_CLIProgressBar):
                 for i in range(0, self._pnum-pcnt-1):
                     print(' ',end='')
                 nt = time.time()
-                rate = (1/(nt-self._lastTime))
-                print(f"] {self._cnt+1}/{self._len} {rate:.2f}{self.unit}/s ({prog:.2f}%)          ")
-                self._lastTime = nt
+                dt = nt-self._lastTime
+                if dt > 0:
+                    rate = (1.0/(nt-self._lastTime))
+                    print(f"] {self._cnt+1}/{self._len} {rate:.2f}{self.unit}/s ({prog:.2f}%)          ")
+                    self._lastTime = nt
+                else:
+                    print(f"] {self._cnt+1}/{self._len} inf {self.unit}/s ({prog:.2f}%)          ")
             else:
                 pass
             self._cnt += 1
