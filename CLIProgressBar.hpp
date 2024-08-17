@@ -12,9 +12,6 @@
 #include <ostream>
 #include <string>
 #include <iostream>
-#include <sys/_types/_timeval.h>
-#include <sys/select.h>
-#include <type_traits>
 #include <utility>
 #include <iomanip>
 
@@ -76,6 +73,11 @@ class CLIProgressBar {
         }
     }
 #else 
+    void cliMoveArrowUp() {
+        _out("\33[1A");
+    }
+#endif
+
     void _out(const char * s) {
         if(this->_ost) (*this->_ost) << s;
         else printf("%s", s);
@@ -97,10 +99,6 @@ class CLIProgressBar {
         else printf("%llu", v);
     }
    
-    void cliMoveArrowUp() {
-        _out("\33[1A");
-    }
-#endif
     double getTime() {
 #ifdef _WIN32
         FILETIME s;
