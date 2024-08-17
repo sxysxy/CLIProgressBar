@@ -1,7 +1,8 @@
 # File: CLIProgressBar.py
 # Author: hfcloud <sxysxygm@gmail.com / 1441157749@qq.com> (also name: sxysxy)
 # Date: 2024-08-17
-# License: The MIT License only for this file. Always reserve this message when using this CLIProgressBar
+# License: The MIT License only for this file. Always reserve this message when using this CLIProgressBar.py. 
+# LICENSE file is not required to attach with this file when embedded in other projects.
 
 from typing import Iterable
 import os
