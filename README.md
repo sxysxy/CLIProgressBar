@@ -16,7 +16,7 @@ for x in CLIProgressBar(xs, desc="Description", unit='sample'):
     pass
 ```
 
-C++:
+C++: (You only need CLIProgressBar.hpp, and a C++14 compiler)
 ```cpp
 std::vector<int> v;
 for(int i = 0; i < 100; i++) {
@@ -32,3 +32,5 @@ bar.run([&](int i) {
 });
 printf("%d\n", s);
 ```
+
+<img src="figures/example.png">
