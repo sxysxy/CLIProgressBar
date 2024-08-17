@@ -14,6 +14,7 @@
 #include <iostream>
 #include <utility>
 #include <iomanip>
+#include <cmath>
 
 #ifdef _WIN32
 #define WIN32_LEAN_AND_MEAN 1
@@ -124,7 +125,7 @@ public:
         this->_cnt = 0;
         this->_ost = nullptr;
 #ifdef _WIN32
-        this->_hStdOut = GetStdHandle(-11)
+        this->_hStdOut = GetStdHandle(-11);
 #endif
         int cli_width = get_terminal_width();
         if (cli_width < 90) {
