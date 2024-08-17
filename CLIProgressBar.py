@@ -26,7 +26,7 @@ if sys.platform in ['win32', 'cygwin']:
 
 class _CLIProgressBar:
     def _cliMoveArrowUp(self):
-        if os.name =='nt': 
+        if self._is_windows:
             winMoveArrawUp(self._hStdOut)
         else:
             print("\33[1A", end='')
