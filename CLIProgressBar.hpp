@@ -4,6 +4,7 @@
  * License: The MIT License only for this file. Always reserve this message when using this CLIProgressBar.py. 
  * LICENSE file is not required to attach with this file when embedded in other projects.
 */
+#pragma once
 
 #include <cstddef>
 #include <cstdio>
